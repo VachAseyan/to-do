@@ -1,0 +1,151 @@
+.todoItem {
+    background-color: white;
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.todoItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.todoItem.completed {
+    border-left-color: #2ecc71;
+    background-color: #f8f9fa;
+}
+
+.todoContent {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.todoText {
+    margin: 0;
+    flex-grow: 1;
+    color: #34495e;
+    font-size: 1.15rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.completed {
+    color: #95a5a6;
+    text-decoration: line-through;
+}
+
+.todoCheckbox {
+    min-width: 1.4rem;
+    height: 1.4rem;
+    cursor: pointer;
+    accent-color: #2ecc71;
+    border-radius: 4px;
+    border: 2px solid #bdc3c7;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.editButton {
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+}
+
+.editButton:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+.deleteButton {
+    background-color: #e74c3c;
+    color: white;
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.2);
+}
+
+.deleteButton:hover {
+    background-color: #c0392b;
+    transform: translateY(-1px);
+}
+
+.editInput {
+    flex-grow: 1;
+    padding: 0.8rem 1rem;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+.editInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.editControls {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.saveButton {
+    background-color: #2ecc71;
+    color: white;
+    box-shadow: 0 2px 4px rgba(46, 204, 113, 0.2);
+}
+
+.saveButton:hover {
+    background-color: #27ae60;
+    transform: translateY(-1px);
+}
+
+.cancelButton {
+    background-color: #95a5a6;
+    color: white;
+    box-shadow: 0 2px 4px rgba(149, 165, 166, 0.2);
+}
+
+.cancelButton:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-1px);
+}
+
+/* Animation for new todo items */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.todoItem {
+    animation: fadeIn 0.3s ease-out forwards;
+}
