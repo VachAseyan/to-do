@@ -25,7 +25,7 @@ export const toDoSlice = createAppSlice({
         editToDo: create.reducer((state, action) => {
             state.toDos = state.toDos.map(todo => {
                 if (todo.id === action.payload.id) {
-                    todo.value = action.payload.value
+                    todo.value = action.payload.newValue
                 }
                 return todo
             })
