@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { deleteToDo, markDone } from "../toDos/toDosSlice";
+import { deleteToDo, editToDo, markDone } from "../toDos/toDosSlice";
 import style from "./ToDo.module.css";
 
-const ToDo = ({ id, value, isDone, editToDo }) => {
+const ToDo = ({ id, value, isDone }) => {
     const [editMode, setEditMode] = useState(false);
     const [editValue, setEditValue] = useState(value);
     const dispatch = useAppDispatch();
@@ -20,8 +20,12 @@ const ToDo = ({ id, value, isDone, editToDo }) => {
         dispatch(markDone({ id }));
     }
 
+    const editToDoo = (id, newValue) => {
+        dispatch(editToDo({ id, newValue }));
+    };
+
     const handleSave = () => {
-        editToDo(id, editValue);
+        editToDoo(id, editValue);
         toggleEditMode();
     }
 

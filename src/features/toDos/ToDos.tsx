@@ -16,10 +16,6 @@ function ToDos() {
         }
     };
 
-    const editToDoo = (id, newValue) => {
-        dispatch(editToDo({ id, newValue }));
-    };
-
     const handlefilterByDone = () => {
         dispatch(filterByDone());
     }
@@ -59,7 +55,6 @@ function ToDos() {
                         id={todo.id}
                         isDone={todo.isDone}
                         value={todo.value}
-                        editToDo={editToDoo}
                     />
                 ))}
             </div>
