@@ -4,6 +4,7 @@ const initialState = {
     toDos: JSON.parse(localStorage.getItem("toDos")) ?? [],
 }
 
+
 export const toDoSlice = createAppSlice({
     name: "todos",
     initialState,
@@ -32,12 +33,17 @@ export const toDoSlice = createAppSlice({
         }),
         filterByDone: create.reducer(state => {
             state.toDos = state.toDos.filter(todo => todo.isDone === false)
-        })
+        }),
+        deleteAll: create.reducer(state => {
+            state.toDos = []
+        }),
+
     }),
     selectors: {
         selectToDos: state => state.toDos
-    },
+    }
+
 })
 
-export const { addToDo, deleteToDo, markDone, editToDo, filterByDone } = toDoSlice.actions
+export const { addToDo, deleteToDo, markDone, editToDo, filterByDone, deleteAll } = toDoSlice.actions
 export const { selectToDos } = toDoSlice.selectors

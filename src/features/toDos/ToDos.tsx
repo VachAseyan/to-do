@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { addToDo, editToDo, filterByDone, selectToDos } from "./toDosSlice";
+import { addToDo, deleteAll, filterByDone, selectToDos } from "./toDosSlice";
 import ToDo from "../toDo/ToDo";
 import style from "./ToDos.module.css";
 
@@ -24,6 +24,10 @@ function ToDos() {
         localStorage.setItem("toDos", JSON.stringify(todos));
     }, [todos]);
 
+    const handleDeleteAll = () => {
+        dispatch(deleteAll());
+    }
+
     return (
         <div className={style.container}>
             <h1 className={style.title}>To Do List</h1>
@@ -35,6 +39,9 @@ function ToDos() {
                     onChange={(e) => setInputValue(e.target.value)}
                     placeholder="Add a new task..."
                 />
+                <button onClick={handleDeleteAll}>
+                    Delete All
+                </button>
                 <button
                     className={style.addButton}
                     onClick={handlefilterByDone}
